@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 import meta from './meta.json'
-import EvmRpcInspectorView from '@/views/EvmRpcInspector'
+import EvmLogsDownloader from '@/views/EvmLogsDownloader'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.defi-nenux.xyz'),
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 }
 
 function Page() {
-  return <EvmRpcInspectorView />
+  return <EvmLogsDownloader />
 }
 
 export default Page
