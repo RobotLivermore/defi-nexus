@@ -15,9 +15,9 @@ const EvmRpcInspectorView: FC = () => {
     setResult(response)
   }
   return (
-    <div className="w-full flex flex-col items-center min-h-screen">
+    <div className="w-full flex flex-col items-center h-screen">
       <h1 className="text-3xl font-bold w-full border-b px-4 py-3">Evm Rpc Inspector</h1>
-      <div className="w-full grid grid-cols-2 divide-x grow">
+      <div className="w-full grid grid-cols-2 divide-x grow overflow-hidden">
         <RpcRequest onRequest={handleRequest} />
         <RpcResponse result={result} />
       </div>
