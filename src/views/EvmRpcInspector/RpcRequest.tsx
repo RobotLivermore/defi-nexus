@@ -1,9 +1,7 @@
 'use client'
 
+import React, { FC } from 'react'
 import useLocalStorage from '@/hooks/useLocalstorage'
-import React, { FC, Fragment } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { getPrimayButtonClasses } from '@/css/button'
 import Select from '@/components/Select'
 import { getDefaultInputClasses } from '@/css/input'

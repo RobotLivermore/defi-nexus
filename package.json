@@ -15,7 +15,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-ga4": "^2.1.0",
-    "tailwind-merge": "^2.2.1"
+    "tailwind-merge": "^2.2.1",
+    "viem": "^2.7.8"
   },
   "devDependencies": {
     "@types/node": "^20",
