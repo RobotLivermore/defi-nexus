@@ -3,7 +3,7 @@
 import React, { FC } from 'react'
 import useLocalStorage from '@/hooks/useLocalstorage'
 import { getPrimayButtonClasses } from '@/css/button'
-import Select from '@/components/Select'
+import Select from '@/components/ui/Select'
 import { getDefaultInputClasses } from '@/css/input'
 
 const ethMethods = [
