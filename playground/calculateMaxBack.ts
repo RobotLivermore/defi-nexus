@@ -24,7 +24,7 @@ function calculateMaximumDrawdown(prices: number[]): number {
 }
 
 const data = JSON.parse(
-  fs.readFileSync('./data/analysis/marketProfitList.json', 'utf-8')
+  fs.readFileSync('./data/analysis/marketProfitList2.json', 'utf-8')
 )
 // 示例数组
 const prices: number[] = data.map((d: any) => d.value)

@@ -8,14 +8,19 @@ const main = async () => {
   // 2. 统计MarketPoolValueInfo
   const marketTokenValueMap: Record<
     string,
-    { blockNumber: number; tokenPrice: number }[]
+    {
+      blockNumber: number
+      tokenPrice: number
+      longTokenAmount: number
+      longTokenPrice: number
+      marketTokensSupply: number
+    }[]
   > = {}
   logReader.forEach(
     (log) => {
       if (log.eventName === 'MarketPoolValueInfo') {
         if (!marketTokenValueMap[log.market.toLowerCase()]) {
           marketTokenValueMap[log.market.toLowerCase()] = []
-          console.log(log)
         }
         if (log.poolValue === '0' || log.marketTokensSupply === '0') {
           return
@@ -29,10 +34,29 @@ const main = async () => {
               .toNumber()
               .toFixed(4)
           ),
+          longTokenAmount: Number(
+            Bignumber(log.longTokenAmount)
+              .div(Bignumber(log.marketTokensSupply))
+              .toNumber()
+              .toFixed(10)
+          ),
+          longTokenPrice: Number(
+            Bignumber(log.longTokenUsd)
+              .div(Bignumber(log.longTokenAmount))
+              .div(Bignumber(10).pow(12))
+              .toNumber()
+              .toFixed(4)
+          ),
+          marketTokensSupply: Number(
+            Bignumber(log.marketTokensSupply)
+              .div(Bignumber(10).pow(18))
+              .toNumber()
+              .toFixed(4)
+          ),
         })
       }
     },
-    { log: false }
+    { log: true }
   )
   fs.writeFileSync(
     './data/analysis/marketTokenValueMap.json',
