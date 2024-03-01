@@ -5,6 +5,7 @@ import React, { FC, useState } from 'react'
 import useDownloadLogs from './useDownloadLogs'
 import { getDefaultInputClasses } from '@/css/input'
 import useLocalStorage from '@/hooks/useLocalstorage'
+import useDB from './useDB'
 
 const infuraNetworks = [
   'arbitrum-mainnet',
@@ -24,6 +25,9 @@ const Downloader: FC = () => {
   const [network, setNetwork] = useState<string>('mainnet')
 
   const { downloading, downloadLogs, logs, data } = useDownloadLogs()
+  const { open } = useDB()
+
+
 
   const downloadData = () => {
     // download json data
@@ -78,7 +82,8 @@ const Downloader: FC = () => {
             <button
               className={getPrimayButtonClasses('text-sm px-3 py-1 h-9')}
               onClick={() => {
-                downloadLogs(infuraKey, network, contractAddress)
+                open(`${network}_${contractAddress}`)
+                // downloadLogs(infuraKey, network, contractAddress)
               }}
             >
               Download
