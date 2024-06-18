@@ -35,7 +35,7 @@
     "react-ga4": "^2.1.0",
     "tailwind-merge": "^2.2.1",
     "viem": "^2.7.8",
-    "ws": "^8.16.0"
+    "ws": "^8.17.1"
   },
   "devDependencies": {
     "@types/node": "^20",
